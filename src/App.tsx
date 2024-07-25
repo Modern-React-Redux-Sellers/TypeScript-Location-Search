@@ -1,13 +1,19 @@
+import type {Place} from "./api/Place"; //type says to import a data type form somewhere
+import {useState} from "react";
 import Map from "./components/Map";
 import LocationSearch from "./components/LocationSearch";
 
+
+
 function App() {
+ const [place, setPlace] = useState<Place | null>(null); //place to be sent into Map component can be Place or null
+
  return <div className="h-screen w-screen grid grid-cols-12">
   <div className="col-span-3 p-2">
-   <LocationSearch/>
+   <LocationSearch onPlaceClick={(p) => setPlace(p)}/>
   </div>
   <div className="col-span-9">
-   <Map/>
+   <Map place={place}/>
   </div>
  </div>
 }

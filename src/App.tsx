@@ -6,7 +6,9 @@ import LocationSearch from "./components/LocationSearch";
 
 
 function App() {
- const [place, setPlace] = useState<Place | null>(null); //place to be sent into Map component can be Place or null
+ //place to be sent into Map component can be Place or null
+ //setPlace passed into location search as component
+ const [place, setPlace] = useState<Place | null>(null);
 
  return <div className="h-screen w-screen grid grid-cols-12">
   <div className="col-span-3 p-2">

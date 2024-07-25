@@ -2,6 +2,7 @@ import type {Place} from "../api/Place";
 import {Fragment, useState} from "react";
 import {search} from "../api/search";
 
+//Prop to be expected contains a function
 interface LocationSearchProps {
     onPlaceClick: (place:Place) => void;
 }
@@ -27,7 +28,7 @@ export default function LocationSearch({onPlaceClick}:LocationSearchProps) {
            value={term}
            onChange={e => setTerm(e.target.value)}/>
        </form>
-        <h1 className="font-bold" mt-6>Found Locations</h1>
+        <h1 className="font-bold mt-6">Found Locations</h1>
         <div className="grid grid-cols-[1fr_40px] gap-2 mt-2 items-center">
             {
                 places.map(place => {

@@ -11,12 +11,17 @@ export default function LocationSearch({onPlaceClick}:LocationSearchProps) {
     const [places, setPlaces] = useState<Place[]>([]) //must declare array is Place type
     const [term, setTerm] = useState('');
 
+    //handles submission of search form
     const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        //results holds array of Place objects from search component/function
         const results = await search(term);
+
+        //sets places to array of Place objects
         setPlaces(results);
-    }
+    }//END handleSubmit
+
 
     return <div>
        <form onSubmit={handleSubmit}>
@@ -31,6 +36,7 @@ export default function LocationSearch({onPlaceClick}:LocationSearchProps) {
         <h1 className="font-bold mt-6">Found Locations</h1>
         <div className="grid grid-cols-[1fr_40px] gap-2 mt-2 items-center">
             {
+                //Creates a section in search results part of page for each Place object found in array
                 places.map(place => {
                     return <Fragment key={place.id}>
                         <p className="text-sm">{place.name}</p>

@@ -3,7 +3,8 @@ import {useState} from "react";
 import Map from "./components/Map";
 import LocationSearch from "./components/LocationSearch";
 
-
+//NPM RUN DEV
+//TO START PROJECT
 
 function App() {
  //place to be sent into Map component can be Place or null
@@ -12,7 +13,10 @@ function App() {
 
  return <div className="h-screen w-screen grid grid-cols-12">
   <div className="col-span-3 p-2">
-   <LocationSearch onPlaceClick={(p) => setPlace(p)}/>
+   <LocationSearch onPlaceClick={
+    //passed into LocationSearch component
+    (p) => setPlace(p)
+   }/>
   </div>
   <div className="col-span-9">
    <Map place={place}/>
